@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaJe - Pastorale des Jeunes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+       @font-face {
+    font-family: 'InsatiableDisplay';
+    /* Chemin local vers le fichier */
+    src: url('police/InsatiableDisplay-BoldCondensed.ttf') format('truetype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'RobotoMedium';
+    src: url('police/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'RobotoRegular';
+    src: url('police/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+        
+        .font-display { font-family: 'InsatiableDisplay', sans-serif; }
+        .font-medium { font-family: 'RobotoMedium', sans-serif; }
+        .font-regular { font-family: 'RobotoRegular', sans-serif; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.5) 0%, rgba(153, 27, 27, 0.5) 100%), 
+                        url('https://github.com/Cyprdu/PaJe/raw/refs/heads/main/img/2025-08-22_17-06-05_328.heic') center/cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .activity-card {
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .scroll-smooth { scroll-behavior: smooth; }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .parallax-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(220, 38, 38, 0.9);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .play-button:hover {
+            background: rgba(220, 38, 38, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .play-button svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            margin-left: 3px;
+        }
+        
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            aspect-ratio: 16/9;
+        }
+        
+        .close-button {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="font-regular text-gray-800 scroll-smooth">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_. _. 814_n.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#accueil" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Accueil</a>
+                        <a href="#qui-sommes-nous" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Qui sommes-nous</a>
+                        <a href="#camps" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Nos camps</a>
+                        <a href="#activites" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Nos activités</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-red-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#accueil" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Accueil</a>
+                <a href="#qui-sommes-nous" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Qui sommes-nous</a>
+                <a href="#camps" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Nos camps</a>
+                <a href="#activites" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Nos activités</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-gradient min-h-screen flex items-center justify-center text-white pt-16">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h1 class="font-display text-6xl md:text-8xl font-bold mb-6">PaJe</h1>
+            <h2 class="font-medium text-2xl md:text-3xl mb-8">Pastorale des Jeunes</h2>
+            <p class="font-regular text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+                Viens vivre des moments inoubliables de foi, de partage et d'amitié avec d'autres jeunes de ton âge
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#camps" class="bg-white text-red-600 font-medium px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg">
+                    Découvrir nos camps
+                </a>
+                <a href="#qui-sommes-nous" class="border-2 border-white text-white font-medium px-8 py-4 rounded-full hover:bg-white hover:text-red-600 transition-colors text-lg">
+                    En savoir plus
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qui sommes-nous -->
+    <section id="qui-sommes-nous" class="py-20 bg-gray-50 parallax-content">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="font-display text-5xl font-bold text-gray-800 mb-6">Qui sommes-nous ?</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-up">
+                    <h3 class="font-medium text-2xl text-red-600 mb-6">La Pastorale des Jeunes</h3>
+                    <p class="font-regular text-lg text-gray-700 mb-6 leading-relaxed">
+                        La PaJe est la Pastorale des Jeunes du Diocèse de Belley-Ars. Notre mission est d'accompagner les jeunes de 10 à 17 ans dans leur découverte et leur approfondissement de la foi chrétienne.
+                    </p>
+                    <p class="font-regular text-lg text-gray-700 mb-6 leading-relaxed">
+                        À travers nos camps, week-ends et journées de retraite, nous proposons aux jeunes de vivre des expériences authentiques de rencontre avec Jésus, dans un climat de joie, de fraternité et de partage.
+                    </p>
+                    <p class="font-regular text-lg text-gray-700 leading-relaxed">
+                        Nos activités mêlent temps spirituels (louange, adoration, enseignements) et moments de détente (grands jeux, activités créatives) pour offrir une expérience complète et enrichissante.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg fade-in-up">
+                    <h4 class="font-medium text-xl text-red-600 mb-4">Nos valeurs</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center font-regular text-gray-700">
+                            <span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                            Accueil et bienveillance
+                        </li>
+                        <li class="flex items-center font-regular text-gray-700">
+                            <span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                            Fraternité et partage
+                        </li>
+                        <li class="flex items-center font-regular text-gray-700">
+                            <span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                            Découverte de la foi
+                        </li>
+                        <li class="flex items-center font-regular text-gray-700">
+                            <span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                            Joie et épanouissement
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos camps -->
+    <section id="camps" class="py-20 bg-white parallax-content">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="font-display text-5xl font-bold text-gray-800 mb-6">Nos camps</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
+                <p class="font-regular text-xl text-gray-600 max-w-3xl mx-auto">
+                    Découvre nos prochains événements et inscris-toi pour vivre des moments exceptionnels !
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="camps-container">
+                <!-- Les camps seront générés par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos activités -->
+    <section id="activites" class="py-20 bg-gray-50 parallax-content">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="font-display text-5xl font-bold text-gray-800 mb-6">Nos activités</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
+                <p class="font-regular text-xl text-gray-600 max-w-3xl mx-auto">
+                    Découvre la richesse de nos activités qui mêlent spiritualité, partage et moments de joie
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0s;">
+                    <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/DSC00736.jpeg?raw=true" 
+                             alt="Temps de louange" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                    </div>
+                    <h3 class="font-medium text-xl text-red-600 mb-3">Louange</h3>
+                    <p class="font-regular text-gray-700">
+                        Des moments de chant et de prière pour exprimer notre joie et notre reconnaissance envers Dieu.
+                    </p>
+                </div>
+
+                <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/DSC00667.jpeg?raw=true" 
+                             alt="Témoignages" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                    </div>
+                    <h3 class="font-medium text-xl text-red-600 mb-3">Témoignages</h3>
+                    <p class="font-regular text-gray-700">
+                        Écoute et partage d'expériences de foi authentiques qui touchent le cœur et inspirent.
+                    </p>
+                </div>
+
+                <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/FaiK9Rc4T-GU9M5tXeLtUA.jpeg?raw=true" 
+                             alt="Grands jeux" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                    </div>
+                    <h3 class="font-medium text-xl text-red-600 mb-3">Grands jeux</h3>
+                    <p class="font-regular text-gray-700">
+                        Des activités ludiques et dynamiques pour créer des liens et vivre des moments de pure joie ensemble.
+                    </p>
+                </div>
+
+                <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/8MQTKhaJSqC2ea0H9pNPlA.jpeg?raw=true" 
+                             alt="Adoration" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                    </div>
+                    <h3 class="font-medium text-xl text-red-600 mb-3">Adoration</h3>
+                    <p class="font-regular text-gray-700">
+                        Des temps de silence et de recueillement pour rencontrer Jésus dans l'intimité de la prière.
+                    </p>
+                </div>
+
+                <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0.4s;">
+                    <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/DSC00582.jpeg?raw=true" 
+                             alt="Enseignements" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                    </div>
+                    <h3 class="font-medium text-xl text-red-600 mb-3">Enseignements</h3>
+                    <p class="font-regular text-gray-700">
+                        Des topos adaptés aux jeunes pour approfondir la foi et découvrir la richesse de l'Évangile.
+                    </p>
+                </div>
+
+                <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0.5s;">
+                    <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/A4aBSxjvQFqglyO0Vt9hew.jpeg?raw=true" 
+                             alt="Prière personnelle" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                    </div>
+                    <h3 class="font-medium text-xl text-red-600 mb-3">Prière personnelle</h3>
+                    <p class="font-regular text-gray-700">
+                        Des moments privilégiés pour développer sa relation personnelle avec Dieu dans le calme.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-display text-2xl font-bold text-red-400 mb-4">PaJe</h3>
+                    <p class="font-regular text-gray-300 mb-4">
+                        Pastorale des Jeunes du Diocèse de Belley-Ars
+                    </p>
+                    <p class="font-regular text-gray-300">
+                        Accompagner les jeunes dans leur découverte de la foi chrétienne
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-medium text-lg mb-4">Liens utiles</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#qui-sommes-nous" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Qui sommes-nous</a></li>
+                        <li><a href="#camps" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Nos camps</a></li>
+                        <li><a href="#activites" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Nos activités</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium text-lg mb-4">Contact</h4>
+                    <p class="font-regular text-gray-300 mb-2">Diocèse de Belley-Ars</p>
+                    <p class="font-regular text-gray-300">Pour plus d'informations sur nos activités</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="font-regular text-gray-400">© 2024 PaJe - Pastorale des Jeunes. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal vidéo -->
+    <div id="video-modal" class="video-modal hidden">
+        <div class="video-container">
+            <button class="close-button" onclick="closeVideoModal()">×</button>
+            <iframe id="video-iframe" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Menu mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Données des camps
+        const events = [
+            {
+                type: "Journée de retraite",
+                age_group: "10-12 ans",
+                location: "Sanctuaire d'Ars",
+                date: "2025-10-11",
+                registration_link: "https://retraite2025-arssurformans.venio.fr/fr",
+                teaser: "none",
+                img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/retraite-10-12-ans-2/image_albumphotos",
+                description: "Louange, témoignages et enseignements, écoute de la Parole de Dieu, temps de partage en fraternité, petits groupes de 8 à 10 jeunes autour d'un animateur, temps d'adoration et de confession, grands jeux."
+            },
+            {
+                type: "Week-end",
+                name: "Dieu est là",
+                age_group: "12-17 ans",
+                location: "Bourg en Bresse",
+                date: "2025-11-22",
+                registration_link: "https://weekenddieuestla2025-bourgenbresse.venio.fr/fr",
+                teaser: "https://youtu.be/j_PNDu0tmZ8",
+                img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/week-end-dieu-est-la-1/image_albumphotos",
+                description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux"
+            },
+            {
+                type: "Week-end",
+                name: "Dieu est là",
+                age_group: "12-17 ans",
+                location: "Belley",
+                date: "2026-01-31",
+                registration_link: "https://weekenddieuestla2026-belley.venio.fr/fr",
+                teaser: "https://youtu.be/j_PNDu0tmZ8",
+                img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/week-end-dieu-est-la-1/image_albumphotos",
+                description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux"
+            },
+            {
+                type: "Week-end",
+                name: "Dieu est là",
+                age_group: "12-17 ans",
+                location: "Bourg en Bresse",
+                date: "2026-05-01",
+                registration_link: "https://weekenddieuestla2026-bourg.venio.fr/fr",
+                teaser: "https://youtu.be/j_PNDu0tmZ8",
+                img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/week-end-dieu-est-la-1/image_albumphotos",
+                description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux"
+            },
+            {
+                type: "Journée de retraite",
+                age_group: "10-12 ans",
+                location: "Sanctuaire d'Ars",
+                date: "2026-03-14",
+                registration_link: "https://retraite2026-arssurformans.venio.fr/fr",
+                teaser: "none",
+                img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/retraite-10-12-ans-2/image_albumphotos",
+                description: "Louange, témoignages et enseignements, écoute de la Parole de Dieu, temps de partage en fraternité, petits groupes de 8 à 10 jeunes autour d'un animateur, temps d'adoration et de confession, grands jeux."
+            }
+        ];
+
+        // Fonction pour formater la date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            return date.toLocaleDateString('fr-FR', options);
+        }
+
+        // Fonction d'animation au scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in-up');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Générer les cartes des camps
+        function generateCampCards() {
+            const container = document.getElementById('camps-container');
+            
+            events.forEach((event, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up';
+                card.style.transitionDelay = `${index * 0.1}s`;
+                
+                const title = event.name ? `${event.type} "${event.name}"` : event.type;
+                
+                card.innerHTML = `
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="${event.img}" 
+                             alt="${title}" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-medium">
+                                ${event.age_group}
+                            </span>
+                            <span class="text-gray-500 text-sm font-regular">
+                                ${formatDate(event.date)}
+                            </span>
+                        </div>
+                        <h3 class="font-medium text-xl text-gray-800 mb-2">${title}</h3>
+                        <p class="text-red-600 font-medium mb-3">📍 ${event.location}</p>
+                        <p class="font-regular text-gray-600 mb-4 text-sm leading-relaxed">
+                            ${event.description}
+                        </p>
+                        <div class="flex flex-col gap-2">
+                            <a href="${event.registration_link}" 
+                               target="_blank"
+                               class="bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors text-center">
+                                S'inscrire
+                            </a>
+                            ${event.teaser !== "none" ? `
+                                <a href="${event.teaser}" 
+                                   target="_blank"
+                                   class="border border-red-600 text-red-600 font-medium px-6 py-2 rounded-full hover:bg-red-50 transition-colors text-center text-sm">
+                                    Voir le teaser
+                                </a>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Initialiser les cartes au chargement de la page
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCampCards();
+            animateOnScroll();
+        });
+
+        // Écouter le scroll pour les animations
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Navigation fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Fermer le menu mobile si ouvert
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e24735d371592b',t:'MTc1NzcxMDIzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
