@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaJe - Pastorale des Jeunes</title>
-    <link rel="icon" type="image/png" href="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_. _. 814_n.png?raw=true">
+    <link rel="icon" type="image/png" href="https://github.com/Cyprdu/PaJe/blob/main/img/favico.png?raw=true">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @font-face {
@@ -196,6 +196,47 @@
             flex: 1;
             border: none;
             width: 100%;
+        }
+        
+        .x-icon {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .x-icon:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+        
+        .x-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        .x-icon .path1,
+        .x-icon .path2 {
+            stroke-dasharray: 20;
+            stroke-dashoffset: 20;
+            transition: stroke-dashoffset 0.3s ease;
+        }
+        
+        .x-icon:hover .path1 {
+            stroke-dashoffset: 0;
+        }
+        
+        .x-icon:hover .path2 {
+            stroke-dashoffset: 0;
+            transition-delay: 0.1s;
         }
     </style>
 </head>
@@ -561,8 +602,17 @@
     <!-- Overlay d'inscription -->
     <div id="registration-overlay" class="registration-overlay">
         <div class="registration-header">
-            <h2 class="font-display text-xl">Inscription</h2>
-            <button class="back-button" onclick="closeRegistration()">← Retour</button>
+            <div class="flex items-center justify-between w-full">
+                <div class="flex-1 flex justify-center">
+                    <h2 class="font-display text-xl">Inscription</h2>
+                </div>
+                <div class="x-icon" onclick="closeRegistration()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                        <path class="path1" d="M18 6 6 18"/>
+                        <path class="path2" d="m6 6 12 12"/>
+                    </svg>
+                </div>
+            </div>
         </div>
         <iframe id="registration-iframe" class="registration-iframe"></iframe>
     </div>
@@ -786,5 +836,5 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989dd12e769122b0',t:'MTc1OTY3NjcyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989ddd5c31eddcfc',t:'MTc1OTY3NzIyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
