@@ -1,26 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaJe - Pastorale des Jeunes</title>
-    <link rel="icon" type="image/png" href="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_198200479239512_8250121211039023814_n.png?raw=true">
+    <link rel="icon" type="image/png" href="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_. _. 814_n.png?raw=true">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @font-face {
             font-family: 'InsatiableDisplay';
-            src: url('https://github.com/Cyprdu/PaJe/raw/refs/heads/main/police/InsatiableDisplay-BoldCondensed.ttf') format('truetype');
+            src: url('https://raw.githubusercontent.com/Cyprdu/PaJe/main/police/InsatiableDisplay-BoldCondensed.ttf') format('truetype');
             font-weight: bold;
         }
         @font-face {
             font-family: 'RobotoMedium';
-            src: url('https://github.com/Cyprdu/PaJe/raw/refs/heads/main/police/Roboto-Medium.ttf') format('truetype');
+            src: url('https://raw.githubusercontent.com/Cyprdu/PaJe/main/police/Roboto-Medium.ttf') format('truetype');
             font-weight: 500;
         }
         @font-face {
             font-family: 'RobotoRegular';
-            src: url('https://github.com/Cyprdu/PaJe/raw/refs/heads/main/police/Roboto-Regular.ttf') format('truetype');
+            src: url('https://raw.githubusercontent.com/Cyprdu/PaJe/main/police/Roboto-Regular.ttf') format('truetype');
             font-weight: 400;
         }
         
@@ -28,11 +27,34 @@
         .font-medium { font-family: 'RobotoMedium', sans-serif; }
         .font-regular { font-family: 'RobotoRegular', sans-serif; }
         
+        body {
+            box-sizing: border-box;
+            font-family: 'RobotoRegular', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'InsatiableDisplay', sans-serif;
+        }
+        
+        .text-medium {
+            font-family: 'RobotoMedium', sans-serif;
+        }
+        
         .hero-gradient {
             background: linear-gradient(135deg, rgba(220, 38, 38, 0.5) 0%, rgba(153, 27, 27, 0.5) 100%), 
                         url('https://github.com/Cyprdu/PaJe/raw/refs/heads/main/img/2025-08-22_17-06-05_328.heic') center/cover;
             background-attachment: fixed;
             background-repeat: no-repeat;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-gradient {
+                background: linear-gradient(135deg, rgba(220, 38, 38, 0.5) 0%, rgba(153, 27, 27, 0.5) 100%), 
+                            url('https://github.com/Cyprdu/PaJe/raw/refs/heads/main/img/2025-08-22_17-06-05_328.heic') center/cover;
+                background-attachment: scroll;
+                background-size: cover;
+                background-position: center center;
+            }
         }
         
         .card-hover {
@@ -193,6 +215,7 @@
                         <a href="#camps" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Nos camps</a>
                         <a href="#activites" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Nos activités</a>
                         <a href="#photos" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Photos</a>
+                        <a href="#contact" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -211,6 +234,7 @@
                 <a href="#camps" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Nos camps</a>
                 <a href="#activites" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Nos activités</a>
                 <a href="#photos" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Photos</a>
+                <a href="#contact" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Contact</a>
             </div>
         </div>
     </nav>
@@ -445,6 +469,52 @@
         </div>
     </section>
 
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-gray-50 parallax-content">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="font-display text-5xl font-bold text-gray-800 mb-6">Contactez-nous</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
+                <p class="font-regular text-xl text-gray-600 max-w-3xl mx-auto">
+                    Une question ? Besoin d'informations ? N'hésitez pas à nous écrire !
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-8 fade-in-up">
+                <form action="https://formspree.io/f/mdkwdzvl" method="POST" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block font-medium text-gray-700 mb-2">Nom complet</label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="email" class="block font-medium text-gray-700 mb-2">Votre email</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block font-medium text-gray-700 mb-2">Sujet</label>
+                        <input type="text" id="subject" name="subject" required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors">
+                    </div>
+                    <div>
+                        <label for="message" class="block font-medium text-gray-700 mb-2">Votre message</label>
+                        <textarea id="message" name="message" rows="6" required
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors resize-vertical"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" 
+                                class="bg-red-600 text-white font-medium px-8 py-4 rounded-full hover:bg-red-700 transition-colors text-lg">
+                            Envoyer le message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="max-w-6xl mx-auto px-4">
@@ -465,6 +535,7 @@
                         <li><a href="#camps" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Nos camps</a></li>
                         <li><a href="#activites" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Nos activités</a></li>
                         <li><a href="#photos" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Photos</a></li>
+                        <li><a href="#contact" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -474,7 +545,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="font-regular text-gray-400">© 2025 PaJe - Pastorale des Jeunes. Tous droits réservés.</p>
+                <p class="font-regular text-gray-400">© 2026 PaJe - Pastorale des Jeunes. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -490,7 +561,7 @@
     <!-- Overlay d'inscription -->
     <div id="registration-overlay" class="registration-overlay">
         <div class="registration-header">
-            <h2 class="font-medium text-xl">Inscription</h2>
+            <h2 class="font-display text-xl">Inscription</h2>
             <button class="back-button" onclick="closeRegistration()">← Retour</button>
         </div>
         <iframe id="registration-iframe" class="registration-iframe"></iframe>
@@ -505,7 +576,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Données des camps
+        // Données des camps (triées par ordre chronologique)
         const events = [
             {
                 type: "Journée de retraite",
@@ -539,7 +610,7 @@
                 img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/week-end-dieu-est-la-1/image_albumphotos",
                 description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux"
             },
-             {
+            {
                 type: "Journée de retraite",
                 age_group: "10-12 ans",
                 location: "Sanctuaire d'Ars",
@@ -559,8 +630,7 @@
                 teaser: "https://youtu.be/j_PNDu0tmZ8",
                 img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/week-end-dieu-est-la-1/image_albumphotos",
                 description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux"
-            },
-           
+            }
         ];
 
         // Fonction pour formater la date
@@ -666,6 +736,40 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Gestion du formulaire de contact
+        const contactForm = document.querySelector('form[action*="formspree"]');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        // Succès
+                        this.innerHTML = `
+                            <div class="text-center py-8">
+                                <div class="text-green-600 text-6xl mb-4">✓</div>
+                                <h3 class="font-medium text-2xl text-gray-800 mb-2">Message envoyé !</h3>
+                                <p class="font-regular text-gray-600">Merci pour votre message. Nous vous répondrons rapidement.</p>
+                            </div>
+                        `;
+                    } else {
+                        throw new Error('Erreur lors de l\'envoi');
+                    }
+                }).catch(error => {
+                    // Erreur
+                    alert('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.');
+                });
+            });
+        }
+
         // Navigation fluide
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -682,5 +786,5 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989d7861c1b2d3d0',t:'MTc1OTY3MzA4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989dd12e769122b0',t:'MTc1OTY3NjcyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
