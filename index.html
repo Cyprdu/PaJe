@@ -73,6 +73,26 @@
         
         .scroll-smooth { scroll-behavior: smooth; }
         
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #dc2626;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
@@ -326,12 +346,12 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#accueil" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Accueil</a>
-                        <a href="#qui-sommes-nous" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Qui sommes-nous</a>
-                        <a href="#camps" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Nos camps</a>
-                        <a href="#activites" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Nos activités</a>
-                        <a href="#photos" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Photos</a>
-                        <a href="#contact" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Contact</a>
+                        <a href="#accueil" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Accueil</a>
+                        <a href="#qui-sommes-nous" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Qui sommes-nous</a>
+                        <a href="#camps" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Nos camps</a>
+                        <a href="#activites" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Nos activités</a>
+                        <a href="#photos" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Photos</a>
+                        <a href="#contact" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -364,7 +384,7 @@
                 Viens vivre des moments inoubliables de foi, de partage et d'amitié avec d'autres jeunes de ton âge
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#camps" class="btn-with-telescope bg-white text-red-600 font-medium px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg inline-flex items-center gap-2">
+                <a href="#camps" class="btn-with-telescope bg-white text-red-600 font-medium px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg inline-flex items-center justify-center gap-2">
                     <span>Découvrir nos camps</span>
                     <div class="telescope-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -382,7 +402,7 @@
                         </svg>
                     </div>
                 </a>
-                <a href="#qui-sommes-nous" class="btn-with-plus border-2 border-white text-white font-medium px-8 py-4 rounded-full hover:bg-white hover:text-red-600 transition-colors text-lg inline-flex items-center gap-2">
+                <a href="#qui-sommes-nous" class="btn-with-plus border-2 border-white text-white font-medium px-8 py-4 rounded-full hover:bg-white hover:text-red-600 transition-colors text-lg inline-flex items-center justify-center gap-2">
                     <span>En savoir plus</span>
                     <div class="plus-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -575,8 +595,7 @@
                         <p class="font-regular text-gray-600 mb-4">
                             Découvrez les moments forts de notre week-end "Dieu est là" à Belley en 2024
                         </p>
-                        <a href="https://www.amazon.fr/photos/share/OVRaNwP67i0TZ3csYlUBB8rkvrtYYDoGzovdgQTQwAE" 
-                           target="_blank"
+                        <button onclick="openAlbum('https://www.amazon.fr/photos/share/OVRaNwP67i0TZ3csYlUBB8rkvrtYYDoGzovdgQTQwAE', 'We DEL Belley 2024')"
                            class="btn-with-telescope bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors inline-flex items-center gap-2">
                             <span>Voir l'album</span>
                             <div class="telescope-icon">
@@ -592,7 +611,7 @@
                                     <circle cx="12" cy="13" r="2" />
                                 </svg>
                             </div>
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -608,8 +627,7 @@
                         <p class="font-regular text-gray-600 mb-4">
                             Revivez les moments de joie et de partage de notre week-end "Dieu est là" à Gex en 2024
                         </p>
-                        <a href="https://www.amazon.fr/photos/share/8XfLaQKoixQhEl1JS6WZYIsqlhMtpXR5mOGLpOwbNPx" 
-                           target="_blank"
+                        <button onclick="openAlbum('https://www.amazon.fr/photos/share/8XfLaQKoixQhEl1JS6WZYIsqlhMtpXR5mOGLpOwbNPx', 'We DEL Gex 2024')"
                            class="btn-with-telescope bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors inline-flex items-center gap-2">
                             <span>Voir l'album</span>
                             <div class="telescope-icon">
@@ -625,7 +643,7 @@
                                     <circle cx="12" cy="13" r="2" />
                                 </svg>
                             </div>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -721,6 +739,62 @@
         </div>
     </div>
 
+    <!-- Overlay Teaser Vidéo -->
+    <div id="teaser-overlay" class="registration-overlay">
+        <!-- Navigation dans le teaser -->
+        <nav class="bg-white shadow-lg w-full z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_. _. 814_n.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#" onclick="closeTeaserAndGoTo('#accueil')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Accueil</a>
+                            <a href="#" onclick="closeTeaserAndGoTo('#qui-sommes-nous')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Qui sommes-nous</a>
+                            <a href="#" onclick="closeTeaserAndGoTo('#camps')" class="nav-link active font-medium text-gray-700 hover:text-red-600 transition-colors">Nos camps</a>
+                            <a href="#" onclick="closeTeaserAndGoTo('#activites')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Nos activités</a>
+                            <a href="#" onclick="closeTeaserAndGoTo('#photos')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Photos</a>
+                            <a href="#" onclick="closeTeaserAndGoTo('#contact')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Contact</a>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn-teaser" class="text-gray-700 hover:text-red-600">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-teaser" class="md:hidden hidden bg-white border-t">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#" onclick="closeTeaserAndGoTo('#accueil')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Accueil</a>
+                    <a href="#" onclick="closeTeaserAndGoTo('#qui-sommes-nous')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Qui sommes-nous</a>
+                    <a href="#" onclick="closeTeaserAndGoTo('#camps')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Nos camps</a>
+                    <a href="#" onclick="closeTeaserAndGoTo('#activites')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Nos activités</a>
+                    <a href="#" onclick="closeTeaserAndGoTo('#photos')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Photos</a>
+                    <a href="#" onclick="closeTeaserAndGoTo('#contact')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Contact</a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="registration-header">
+            <div class="flex items-center justify-between w-full">
+                <div class="arrow-left-icon" onclick="closeTeaser()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="arrow-path" d="m12 19-7-7 7-7"/>
+                        <path class="line-path" d="M19 12H5"/>
+                    </svg>
+                </div>
+                <h2 class="font-display text-xl ml-4" id="teaser-title">Teaser Vidéo</h2>
+                <div class="flex-1"></div>
+            </div>
+        </div>
+        <iframe id="teaser-iframe" class="registration-iframe"></iframe>
+    </div>
+
     <!-- Overlay d'inscription -->
     <div id="registration-overlay" class="registration-overlay">
         <!-- Navigation dans l'inscription -->
@@ -733,12 +807,12 @@
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-8">
-                            <a href="#" onclick="closeRegistrationAndGoTo('#accueil')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Accueil</a>
-                            <a href="#" onclick="closeRegistrationAndGoTo('#qui-sommes-nous')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Qui sommes-nous</a>
-                            <a href="#" onclick="closeRegistrationAndGoTo('#camps')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Nos camps</a>
-                            <a href="#" onclick="closeRegistrationAndGoTo('#activites')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Nos activités</a>
-                            <a href="#" onclick="closeRegistrationAndGoTo('#photos')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Photos</a>
-                            <a href="#" onclick="closeRegistrationAndGoTo('#contact')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Contact</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#accueil')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Accueil</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#qui-sommes-nous')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Qui sommes-nous</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#camps')" class="nav-link active font-medium text-gray-700 hover:text-red-600 transition-colors">Nos camps</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#activites')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Nos activités</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#photos')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Photos</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#contact')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Contact</a>
                         </div>
                     </div>
                     <div class="md:hidden">
@@ -775,6 +849,62 @@
             </div>
         </div>
         <iframe id="registration-iframe" class="registration-iframe"></iframe>
+    </div>
+
+    <!-- Overlay Album Photo -->
+    <div id="album-overlay" class="registration-overlay">
+        <!-- Navigation dans l'album -->
+        <nav class="bg-white shadow-lg w-full z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_. _. 814_n.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#" onclick="closeAlbumAndGoTo('#accueil')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Accueil</a>
+                            <a href="#" onclick="closeAlbumAndGoTo('#qui-sommes-nous')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Qui sommes-nous</a>
+                            <a href="#" onclick="closeAlbumAndGoTo('#camps')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Nos camps</a>
+                            <a href="#" onclick="closeAlbumAndGoTo('#activites')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Nos activités</a>
+                            <a href="#" onclick="closeAlbumAndGoTo('#photos')" class="nav-link active font-medium text-gray-700 hover:text-red-600 transition-colors">Photos</a>
+                            <a href="#" onclick="closeAlbumAndGoTo('#contact')" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-colors">Contact</a>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn-album" class="text-gray-700 hover:text-red-600">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-album" class="md:hidden hidden bg-white border-t">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#" onclick="closeAlbumAndGoTo('#accueil')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Accueil</a>
+                    <a href="#" onclick="closeAlbumAndGoTo('#qui-sommes-nous')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Qui sommes-nous</a>
+                    <a href="#" onclick="closeAlbumAndGoTo('#camps')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Nos camps</a>
+                    <a href="#" onclick="closeAlbumAndGoTo('#activites')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Nos activités</a>
+                    <a href="#" onclick="closeAlbumAndGoTo('#photos')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Photos</a>
+                    <a href="#" onclick="closeAlbumAndGoTo('#contact')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Contact</a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="registration-header">
+            <div class="flex items-center justify-between w-full">
+                <div class="arrow-left-icon" onclick="closeAlbum()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="arrow-path" d="m12 19-7-7 7-7"/>
+                        <path class="line-path" d="M19 12H5"/>
+                    </svg>
+                </div>
+                <h2 class="font-display text-xl ml-4" id="album-title">Album Photo</h2>
+                <div class="flex-1"></div>
+            </div>
+        </div>
+        <iframe id="album-iframe" class="registration-iframe"></iframe>
     </div>
 
     <script>
@@ -913,9 +1043,8 @@
                                 S'inscrire
                             </button>
                             ${event.teaser !== "none" ? `
-                                <a href="${event.teaser}" 
-                                   target="_blank"
-                                   class="btn-with-clap border border-red-600 text-red-600 font-medium px-6 py-2 rounded-full hover:bg-red-50 transition-colors text-center text-sm inline-flex items-center justify-center gap-2">
+                                <a href="${event.teaser}" target="_blank" rel="noopener noreferrer"
+                                   class="btn-with-clap border border-red-600 text-red-600 font-medium px-6 py-2 rounded-full hover:bg-red-50 transition-colors text-center text-sm inline-flex items-center justify-center gap-2 w-full">
                                     <span>Voir le teaser</span>
                                     <div class="clap-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible;">
@@ -1001,7 +1130,35 @@
             }, 100);
         }
 
-        // Menu mobile dans l'inscription
+        // Navigation dans l'album
+        function closeAlbumAndGoTo(section) {
+            closeAlbum();
+            setTimeout(() => {
+                const target = document.querySelector(section);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 100);
+        }
+
+        // Navigation dans le teaser
+        function closeTeaserAndGoTo(section) {
+            closeTeaser();
+            setTimeout(() => {
+                const target = document.querySelector(section);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 100);
+        }
+
+        // Menu mobile dans l'inscription et l'album
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuBtnRegistration = document.getElementById('mobile-menu-btn-registration');
             const mobileMenuRegistration = document.getElementById('mobile-menu-registration');
@@ -1011,6 +1168,24 @@
                     mobileMenuRegistration.classList.toggle('hidden');
                 });
             }
+
+            const mobileMenuBtnAlbum = document.getElementById('mobile-menu-btn-album');
+            const mobileMenuAlbum = document.getElementById('mobile-menu-album');
+            
+            if (mobileMenuBtnAlbum && mobileMenuAlbum) {
+                mobileMenuBtnAlbum.addEventListener('click', () => {
+                    mobileMenuAlbum.classList.toggle('hidden');
+                });
+            }
+
+            const mobileMenuBtnTeaser = document.getElementById('mobile-menu-btn-teaser');
+            const mobileMenuTeaser = document.getElementById('mobile-menu-teaser');
+            
+            if (mobileMenuBtnTeaser && mobileMenuTeaser) {
+                mobileMenuBtnTeaser.addEventListener('click', () => {
+                    mobileMenuTeaser.classList.toggle('hidden');
+                });
+            }
         });
 
         // Initialiser les cartes au chargement de la page
@@ -1018,10 +1193,41 @@
             generateCampCards();
             animateOnScroll();
             updateAllFavoriteButtons();
+            updateActiveNavigation();
         });
 
-        // Écouter le scroll pour les animations
-        window.addEventListener('scroll', animateOnScroll);
+        // Fonction pour mettre à jour la navigation active
+        function updateActiveNavigation() {
+            const sections = ['accueil', 'qui-sommes-nous', 'camps', 'activites', 'photos', 'contact'];
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        currentSection = sectionId;
+                    }
+                }
+            });
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === `#${currentSection}`) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Écouter le scroll pour les animations et la navigation
+        window.addEventListener('scroll', () => {
+            animateOnScroll();
+            updateActiveNavigation();
+        });
 
         // Fonctions pour l'overlay d'inscription
         function openRegistration(url) {
@@ -1037,6 +1243,72 @@
             const iframe = document.getElementById('registration-iframe');
             overlay.style.display = 'none';
             iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fonctions pour l'overlay d'album
+        function openAlbum(url, title) {
+            const overlay = document.getElementById('album-overlay');
+            const iframe = document.getElementById('album-iframe');
+            const titleElement = document.getElementById('album-title');
+            
+            iframe.src = url;
+            titleElement.textContent = title;
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAlbum() {
+            const overlay = document.getElementById('album-overlay');
+            const iframe = document.getElementById('album-iframe');
+            const titleElement = document.getElementById('album-title');
+            
+            overlay.style.display = 'none';
+            iframe.src = '';
+            titleElement.textContent = 'Album Photo';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fonctions pour l'overlay de teaser - VERSION CORRIGÉE
+        function openTeaser(url, title) {
+            console.log('Opening teaser:', url, title);
+            const overlay = document.getElementById('teaser-overlay');
+            const iframe = document.getElementById('teaser-iframe');
+            const titleElement = document.getElementById('teaser-title');
+            
+            if (!overlay || !iframe || !titleElement) {
+                console.error('Elements not found');
+                return;
+            }
+            
+            // Convertir l'URL YouTube en format embed
+            let embedUrl = url;
+            if (url.includes('youtu.be/')) {
+                const videoId = url.split('youtu.be/')[1].split('?')[0];
+                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            } else if (url.includes('youtube.com/watch?v=')) {
+                const videoId = url.split('v=')[1].split('&')[0];
+                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            }
+            
+            console.log('Embed URL:', embedUrl);
+            
+            iframe.src = embedUrl;
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            iframe.setAttribute('allowfullscreen', '');
+            titleElement.textContent = `Teaser - ${title}`;
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTeaser() {
+            const overlay = document.getElementById('teaser-overlay');
+            const iframe = document.getElementById('teaser-iframe');
+            const titleElement = document.getElementById('teaser-title');
+            
+            overlay.style.display = 'none';
+            iframe.src = '';
+            titleElement.textContent = 'Teaser Vidéo';
             document.body.style.overflow = 'auto';
         }
 
@@ -1059,11 +1331,27 @@
                         // Succès
                         this.innerHTML = `
                             <div class="text-center py-8">
-                                <div class="text-green-600 text-6xl mb-4">✓</div>
+                                <div class="text-red-600 mb-4 flex justify-center">
+                                    <svg id="mail-check-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8" />
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                        <path id="check-path" d="m16 19 2 2 4-4" style="stroke-dasharray: 10; stroke-dashoffset: 10; opacity: 0;" />
+                                    </svg>
+                                </div>
                                 <h3 class="font-medium text-2xl text-gray-800 mb-2">Message envoyé !</h3>
                                 <p class="font-regular text-gray-600">Merci pour votre message. Nous vous répondrons rapidement.</p>
                             </div>
                         `;
+                        
+                        // Animation de la coche
+                        setTimeout(() => {
+                            const checkPath = document.getElementById('check-path');
+                            if (checkPath) {
+                                checkPath.style.transition = 'stroke-dashoffset 0.4s ease-in-out, opacity 0.4s ease-in-out';
+                                checkPath.style.strokeDashoffset = '0';
+                                checkPath.style.opacity = '1';
+                            }
+                        }, 100);
                     } else {
                         throw new Error('Erreur lors de l\'envoi');
                     }
@@ -1090,5 +1378,5 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989dffacc2ccd588',t:'MTc1OTY3ODYzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989f5d9b53616989',t:'MTc1OTY5Mjk2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
