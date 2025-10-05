@@ -320,6 +320,80 @@
             transform: rotate(180deg);
         }
         
+        .cursor-click-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cursor-click-icon svg {
+            overflow: visible;
+        }
+        
+        .cursor-main {
+            transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .click-line {
+            opacity: 1;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .group:hover .cursor-main {
+            animation: cursor-bounce 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .group:hover .click-line-1 {
+            animation: click-spread-1 0.6s ease-out 1.3s;
+        }
+        
+        .group:hover .click-line-2 {
+            animation: click-spread-2 0.6s ease-out 1.3s;
+        }
+        
+        .group:hover .click-line-3 {
+            animation: click-spread-3 0.6s ease-out 1.3s;
+        }
+        
+        .group:hover .click-line-4 {
+            animation: click-spread-4 0.6s ease-out 1.3s;
+        }
+        
+        @keyframes cursor-bounce {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(0, -4px); }
+            50% { transform: translate(-3px, 0); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        @keyframes click-spread-1 {
+            0% { opacity: 0; transform: translate(0, 0); }
+            30% { opacity: 1; transform: translate(1px, -1px); }
+            70% { opacity: 0; transform: translate(0, 0); }
+            100% { opacity: 1; transform: translate(0, 0); }
+        }
+        
+        @keyframes click-spread-2 {
+            0% { opacity: 1; transform: translate(0, 0); }
+            30% { opacity: 1; transform: translate(-1px, 0); }
+            70% { opacity: 0; transform: translate(0, 0); }
+            100% { opacity: 1; transform: translate(0, 0); }
+        }
+        
+        @keyframes click-spread-3 {
+            0% { opacity: 1; transform: translate(0, 0); }
+            30% { opacity: 1; transform: translate(-1px, 1px); }
+            70% { opacity: 0; transform: translate(0, 0); }
+            100% { opacity: 1; transform: translate(0, 0); }
+        }
+        
+        @keyframes click-spread-4 {
+            0% { opacity: 1; transform: translate(0, 0); }
+            30% { opacity: 1; transform: translate(0, -1px); }
+            70% { opacity: 0; transform: translate(0, 0); }
+            100% { opacity: 1; transform: translate(0, 0); }
+        }
+        
         @keyframes clap-rotate {
             0% { transform: rotate(0deg); }
             25% { transform: rotate(-10deg); }
@@ -341,7 +415,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <a href="#accueil" class="flex items-center cursor-pointer">
-                    <img src="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_. _. 814_n.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <img src="https://github.com/Cyprdu/PaJe/blob/main/img/logopa.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
                 </a>
                 <div class="hidden md:block">
@@ -711,13 +785,34 @@
                 </div>
                 <div>
                     <h4 class="font-medium text-lg mb-4">Liens utiles</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-2 mb-6">
                         <li><a href="#qui-sommes-nous" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Qui sommes-nous</a></li>
                         <li><a href="#camps" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Nos camps</a></li>
                         <li><a href="#activites" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Nos activités</a></li>
                         <li><a href="#photos" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Photos</a></li>
                         <li><a href="#contact" class="font-regular text-gray-300 hover:text-red-400 transition-colors">Contact</a></li>
                     </ul>
+                    <h4 class="font-medium text-lg mb-4">Suivez-nous</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/pastodesjeunesbelleyars" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-red-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/ainjeuneetcatho" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-red-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@pastoraledesjeunes-diocese2123" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-red-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+                                <path d="m10 15 5-3-5-3z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="font-medium text-lg mb-4">Contact</h4>
@@ -734,11 +829,23 @@
                                 </svg>
                                 <p class="font-regular text-gray-300 text-sm">06 23 25 60 49</p>
                             </div>
-                            <p class="font-regular text-gray-300 text-sm">✉️ paje.ain@gmail.com</p>
+                            <div class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                                <p class="font-regular text-gray-300 text-sm">paje.ain@gmail.com</p>
+                            </div>
                         </div>
                         <div>
                             <p class="font-medium text-red-400 text-sm">Responsable diocésain</p>
-                            <p class="font-regular text-gray-300 text-sm">Gaëlle-Marie CIEREN</p>
+                            <div class="flex items-center gap-2 mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                <p class="font-regular text-gray-300 text-sm">Gaëlle-Marie CIEREN</p>
+                            </div>
                             <div class="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400">
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -748,8 +855,13 @@
                         </div>
                         <div>
                             <p class="font-medium text-red-400 text-sm">Secrétaire assistante</p>
-                            <p class="font-regular text-gray-300 text-sm">Lydia DADDIZA</p>
-                            <p class="font-regular text-gray-300 text-sm">(remplacement temporaire de Ambre BEROD)</p>
+                            <div class="flex items-center gap-2 mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                <p class="font-regular text-gray-300 text-sm">Lydia DADDIZA</p>
+                            </div>
                             <div class="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400">
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -781,7 +893,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_. _. 814_n.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/logopa.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
                     </div>
                     <div class="hidden md:block">
@@ -837,7 +949,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_. _. 814_n.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/logopa.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
                     </div>
                     <div class="hidden md:block">
@@ -893,7 +1005,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_. _. 814_n.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/logopa.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
                     </div>
                     <div class="hidden md:block">
@@ -1068,17 +1180,32 @@
                             </span>
                         </div>
                         <h3 class="font-medium text-xl text-gray-800 mb-2">${title}</h3>
-                        <p class="text-red-600 font-medium mb-3">📍 ${event.location}</p>
+                        <p class="text-red-600 font-medium mb-3 flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            ${event.location}
+                        </p>
                         <p class="font-regular text-gray-600 mb-4 text-sm leading-relaxed">
                             ${event.description}
                         </p>
                         <div class="flex flex-col gap-2">
                             <button onclick="openRegistration('${event.registration_link}')"
-                               class="w-full bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors text-center">
-                                S'inscrire
+                               class="w-full bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors text-center inline-flex items-center justify-center gap-2 group">
+                                <span>S'inscrire</span>
+                                <div class="cursor-click-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path class="cursor-main" d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z" />
+                                        <path class="click-line click-line-1" d="M14 4.1 12 6" />
+                                        <path class="click-line click-line-2" d="m5.1 8-2.9-.8" />
+                                        <path class="click-line click-line-3" d="m6 12-1.9 2" />
+                                        <path class="click-line click-line-4" d="M7.2 2.2 8 5.1" />
+                                    </svg>
+                                </div>
                             </button>
                             ${event.teaser !== "none" ? `
-                                <a href="${event.teaser}" target="_blank" rel="noopener noreferrer"
+                                <button onclick="openVideoModal('${event.teaser}')"
                                    class="btn-with-clap border border-red-600 text-red-600 font-medium px-6 py-2 rounded-full hover:bg-red-50 transition-colors text-center text-sm inline-flex items-center justify-center gap-2 w-full">
                                     <span>Voir le teaser</span>
                                     <div class="clap-icon">
@@ -1093,7 +1220,7 @@
                                             </g>
                                         </svg>
                                     </div>
-                                </a>
+                                </button>
                             ` : ''}
                         </div>
                     </div>
@@ -1304,18 +1431,8 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Fonctions pour l'overlay de teaser - VERSION CORRIGÉE
-        function openTeaser(url, title) {
-            console.log('Opening teaser:', url, title);
-            const overlay = document.getElementById('teaser-overlay');
-            const iframe = document.getElementById('teaser-iframe');
-            const titleElement = document.getElementById('teaser-title');
-            
-            if (!overlay || !iframe || !titleElement) {
-                console.error('Elements not found');
-                return;
-            }
-            
+        // Fonction pour ouvrir la vidéo teaser
+        function openVideoModal(url) {
             // Convertir l'URL YouTube en format embed
             let embedUrl = url;
             if (url.includes('youtu.be/')) {
@@ -1326,24 +1443,23 @@
                 embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
             }
             
-            console.log('Embed URL:', embedUrl);
+            const modal = document.getElementById('video-modal');
+            const iframe = document.getElementById('video-iframe');
             
             iframe.src = embedUrl;
             iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
             iframe.setAttribute('allowfullscreen', '');
-            titleElement.textContent = `Teaser - ${title}`;
-            overlay.style.display = 'flex';
+            
+            modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeTeaser() {
-            const overlay = document.getElementById('teaser-overlay');
-            const iframe = document.getElementById('teaser-iframe');
-            const titleElement = document.getElementById('teaser-title');
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const iframe = document.getElementById('video-iframe');
             
-            overlay.style.display = 'none';
+            modal.classList.add('hidden');
             iframe.src = '';
-            titleElement.textContent = 'Teaser Vidéo';
             document.body.style.overflow = 'auto';
         }
 
@@ -1413,5 +1529,5 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989f7637e23ddcfc',t:'MTc1OTY5Mzk3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989fa6bab43c6eb6',t:'MTc1OTY5NTk1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
