@@ -198,7 +198,7 @@
             width: 100%;
         }
         
-        .x-icon {
+        .arrow-left-icon {
             cursor: pointer;
             transition: all 0.3s ease;
             padding: 8px;
@@ -209,12 +209,11 @@
             justify-content: center;
         }
         
-        .x-icon:hover {
+        .arrow-left-icon:hover {
             background: rgba(255,255,255,0.3);
-            transform: scale(1.1);
         }
         
-        .x-icon svg {
+        .arrow-left-icon svg {
             width: 24px;
             height: 24px;
             stroke: white;
@@ -223,20 +222,96 @@
             stroke-linejoin: round;
         }
         
-        .x-icon .path1,
-        .x-icon .path2 {
-            stroke-dasharray: 20;
-            stroke-dashoffset: 20;
-            transition: stroke-dashoffset 0.3s ease;
+        .arrow-left-icon .arrow-path {
+            transition: transform 0.4s ease;
         }
         
-        .x-icon:hover .path1 {
-            stroke-dashoffset: 0;
+        .arrow-left-icon .line-path {
+            transition: d 0.4s ease;
         }
         
-        .x-icon:hover .path2 {
-            stroke-dashoffset: 0;
-            transition-delay: 0.1s;
+        .arrow-left-icon:hover .arrow-path {
+            transform: translateX(3px);
+            animation: arrow-bounce 0.4s ease;
+        }
+        
+        .arrow-left-icon:hover .line-path {
+            animation: line-shrink 0.4s ease;
+        }
+        
+        @keyframes arrow-bounce {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(3px); }
+            100% { transform: translateX(0); }
+        }
+        
+        @keyframes line-shrink {
+            0% { stroke-dasharray: 14 0; stroke-dashoffset: 0; }
+            50% { stroke-dasharray: 9 5; stroke-dashoffset: 0; }
+            100% { stroke-dasharray: 14 0; stroke-dashoffset: 0; }
+        }
+        
+        .telescope-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .telescope-scope {
+            transition: transform 0.8s ease-in-out;
+        }
+        
+        .btn-with-telescope:hover .telescope-scope {
+            transform: rotate(-15deg);
+        }
+        
+        .clap-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .clap-icon svg {
+            overflow: visible;
+        }
+        
+        .btn-with-clap:hover .clap-main {
+            animation: clap-rotate 0.8s ease-in-out;
+        }
+        
+        .btn-with-clap:hover .clap-hand {
+            animation: clap-hand 0.4s ease-in-out;
+        }
+        
+        .plus-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .plus-icon svg {
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .btn-with-plus:hover .plus-icon svg {
+            transform: rotate(180deg);
+        }
+        
+        @keyframes clap-rotate {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            50% { transform: rotate(-10deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+        @keyframes clap-hand {
+            0% { transform: rotate(0deg); }
+            30% { transform: rotate(-10deg); }
+            60% { transform: rotate(16deg); }
+            100% { transform: rotate(0deg); }
         }
     </style>
 </head>
@@ -289,11 +364,32 @@
                 Viens vivre des moments inoubliables de foi, de partage et d'amitié avec d'autres jeunes de ton âge
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#camps" class="bg-white text-red-600 font-medium px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg">
-                    Découvrir nos camps
+                <a href="#camps" class="btn-with-telescope bg-white text-red-600 font-medium px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg inline-flex items-center gap-2">
+                    <span>Découvrir nos camps</span>
+                    <div class="telescope-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <g class="telescope-scope" style="transform-origin: 12px 13px;">
+                                <path d="m10.065 12.493-6.18 1.318a.934.934 0 0 1-1.108-.702l-.537-2.15a1.07 1.07 0 0 1 .691-1.265l13.504-4.44" />
+                                <path d="m13.56 11.747 4.332-.924" />
+                                <path d="m10.065 12.493-6.18 1.318a.934.934 0 0 1-1.108-.702l-.537-2.15a1.07 1.07 0 0 1 .691-1.265l13.504-4.44" />
+                                <path d="m13.56 11.747 4.332-.924" />
+                                <path d="M16.485 5.94a2 2 0 0 1 1.455-2.425l1.09-.272a1 1 0 0 1 1.212.727l1.515 6.06a1 1 0 0 1-.727 1.213l-1.09.272a2 2 0 0 1-2.425-1.455z" />
+                                <path d="m6.158 8.633 1.114 4.456" />
+                            </g>
+                            <path d="m16 21-3.105-6.21" />
+                            <path d="m8 21 3.105-6.21" />
+                            <circle cx="12" cy="13" r="2" />
+                        </svg>
+                    </div>
                 </a>
-                <a href="#qui-sommes-nous" class="border-2 border-white text-white font-medium px-8 py-4 rounded-full hover:bg-white hover:text-red-600 transition-colors text-lg">
-                    En savoir plus
+                <a href="#qui-sommes-nous" class="btn-with-plus border-2 border-white text-white font-medium px-8 py-4 rounded-full hover:bg-white hover:text-red-600 transition-colors text-lg inline-flex items-center gap-2">
+                    <span>En savoir plus</span>
+                    <div class="plus-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="M12 5v14" />
+                        </svg>
+                    </div>
                 </a>
             </div>
         </div>
@@ -481,8 +577,21 @@
                         </p>
                         <a href="https://www.amazon.fr/photos/share/OVRaNwP67i0TZ3csYlUBB8rkvrtYYDoGzovdgQTQwAE" 
                            target="_blank"
-                           class="bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors inline-block">
-                            Voir l'album
+                           class="btn-with-telescope bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors inline-flex items-center gap-2">
+                            <span>Voir l'album</span>
+                            <div class="telescope-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <g class="telescope-scope" style="transform-origin: 12px 13px;">
+                                        <path d="m10.065 12.493-6.18 1.318a.934.934 0 0 1-1.108-.702l-.537-2.15a1.07 1.07 0 0 1 .691-1.265l13.504-4.44" />
+                                        <path d="m13.56 11.747 4.332-.924" />
+                                        <path d="M16.485 5.94a2 2 0 0 1 1.455-2.425l1.09-.272a1 1 0 0 1 1.212.727l1.515 6.06a1 1 0 0 1-.727 1.213l-1.09.272a2 2 0 0 1-2.425-1.455z" />
+                                        <path d="m6.158 8.633 1.114 4.456" />
+                                    </g>
+                                    <path d="m16 21-3.105-6.21" />
+                                    <path d="m8 21 3.105-6.21" />
+                                    <circle cx="12" cy="13" r="2" />
+                                </svg>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -501,8 +610,21 @@
                         </p>
                         <a href="https://www.amazon.fr/photos/share/8XfLaQKoixQhEl1JS6WZYIsqlhMtpXR5mOGLpOwbNPx" 
                            target="_blank"
-                           class="bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors inline-block">
-                            Voir l'album
+                           class="btn-with-telescope bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors inline-flex items-center gap-2">
+                            <span>Voir l'album</span>
+                            <div class="telescope-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <g class="telescope-scope" style="transform-origin: 12px 13px;">
+                                        <path d="m10.065 12.493-6.18 1.318a.934.934 0 0 1-1.108-.702l-.537-2.15a1.07 1.07 0 0 1 .691-1.265l13.504-4.44" />
+                                        <path d="m13.56 11.747 4.332-.924" />
+                                        <path d="M16.485 5.94a2 2 0 0 1 1.455-2.425l1.09-.272a1 1 0 0 1 1.212.727l1.515 6.06a1 1 0 0 1-.727 1.213l-1.09.272a2 2 0 0 1-2.425-1.455z" />
+                                        <path d="m6.158 8.633 1.114 4.456" />
+                                    </g>
+                                    <path d="m16 21-3.105-6.21" />
+                                    <path d="m8 21 3.105-6.21" />
+                                    <circle cx="12" cy="13" r="2" />
+                                </svg>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -601,17 +723,55 @@
 
     <!-- Overlay d'inscription -->
     <div id="registration-overlay" class="registration-overlay">
+        <!-- Navigation dans l'inscription -->
+        <nav class="bg-white shadow-lg w-full z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/309026698_. _. 814_n.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#" onclick="closeRegistrationAndGoTo('#accueil')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Accueil</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#qui-sommes-nous')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Qui sommes-nous</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#camps')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Nos camps</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#activites')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Nos activités</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#photos')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Photos</a>
+                            <a href="#" onclick="closeRegistrationAndGoTo('#contact')" class="font-medium text-gray-700 hover:text-red-600 transition-colors">Contact</a>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn-registration" class="text-gray-700 hover:text-red-600">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-registration" class="md:hidden hidden bg-white border-t">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#" onclick="closeRegistrationAndGoTo('#accueil')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Accueil</a>
+                    <a href="#" onclick="closeRegistrationAndGoTo('#qui-sommes-nous')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Qui sommes-nous</a>
+                    <a href="#" onclick="closeRegistrationAndGoTo('#camps')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Nos camps</a>
+                    <a href="#" onclick="closeRegistrationAndGoTo('#activites')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Nos activités</a>
+                    <a href="#" onclick="closeRegistrationAndGoTo('#photos')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Photos</a>
+                    <a href="#" onclick="closeRegistrationAndGoTo('#contact')" class="block px-3 py-2 font-medium text-gray-700 hover:text-red-600">Contact</a>
+                </div>
+            </div>
+        </nav>
+        
         <div class="registration-header">
             <div class="flex items-center justify-between w-full">
-                <div class="flex-1 flex justify-center">
-                    <h2 class="font-display text-xl">Inscription</h2>
-                </div>
-                <div class="x-icon" onclick="closeRegistration()">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-                        <path class="path1" d="M18 6 6 18"/>
-                        <path class="path2" d="m6 6 12 12"/>
+                <div class="arrow-left-icon" onclick="closeRegistration()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="arrow-path" d="m12 19-7-7 7-7"/>
+                        <path class="line-path" d="M19 12H5"/>
                     </svg>
                 </div>
+                <h2 class="font-display text-xl ml-4">Inscription</h2>
+                <div class="flex-1"></div>
             </div>
         </div>
         <iframe id="registration-iframe" class="registration-iframe"></iframe>
@@ -720,11 +880,18 @@
                 const title = event.name ? `${event.type} "${event.name}"` : event.type;
                 
                 card.innerHTML = `
-                    <div class="h-48 bg-gray-200 overflow-hidden">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
                         <img src="${event.img}" 
                              alt="${title}" 
                              class="w-full h-full object-cover"
                              onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                        <button onclick="toggleFavorite('${event.date}')" 
+                           id="fav-btn-${event.date}"
+                           class="favorite-btn absolute top-3 right-3 bg-white/80 hover:bg-white text-gray-600 p-2 rounded-full transition-all shadow-lg backdrop-blur-sm">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-3">
@@ -742,14 +909,26 @@
                         </p>
                         <div class="flex flex-col gap-2">
                             <button onclick="openRegistration('${event.registration_link}')"
-                               class="bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors text-center">
+                               class="w-full bg-red-600 text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition-colors text-center">
                                 S'inscrire
                             </button>
                             ${event.teaser !== "none" ? `
                                 <a href="${event.teaser}" 
                                    target="_blank"
-                                   class="border border-red-600 text-red-600 font-medium px-6 py-2 rounded-full hover:bg-red-50 transition-colors text-center text-sm">
-                                    Voir le teaser
+                                   class="btn-with-clap border border-red-600 text-red-600 font-medium px-6 py-2 rounded-full hover:bg-red-50 transition-colors text-center text-sm inline-flex items-center justify-center gap-2">
+                                    <span>Voir le teaser</span>
+                                    <div class="clap-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible;">
+                                            <g class="clap-main" style="transform-origin: 4px 20px;">
+                                                <g class="clap-hand" style="transform-origin: 3px 11px;">
+                                                    <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />
+                                                    <path d="m6.2 5.3 3.1 3.9" />
+                                                    <path d="m12.4 3.4 3.1 4" />
+                                                </g>
+                                                <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+                                            </g>
+                                        </svg>
+                                    </div>
                                 </a>
                             ` : ''}
                         </div>
@@ -760,10 +939,85 @@
             });
         }
 
+        // Système de favoris
+        function getFavorites() {
+            const favorites = localStorage.getItem('paje-favorites');
+            return favorites ? JSON.parse(favorites) : [];
+        }
+
+        function saveFavorites(favorites) {
+            localStorage.setItem('paje-favorites', JSON.stringify(favorites));
+        }
+
+        function toggleFavorite(eventDate) {
+            const favorites = getFavorites();
+            const index = favorites.indexOf(eventDate);
+            
+            if (index > -1) {
+                favorites.splice(index, 1);
+            } else {
+                favorites.push(eventDate);
+            }
+            
+            saveFavorites(favorites);
+            updateFavoriteButton(eventDate);
+        }
+
+        function updateFavoriteButton(eventDate) {
+            const favorites = getFavorites();
+            const button = document.getElementById(`fav-btn-${eventDate}`);
+            const isFavorite = favorites.includes(eventDate);
+            
+            if (button) {
+                if (isFavorite) {
+                    button.classList.remove('bg-white/80', 'hover:bg-white', 'text-gray-600');
+                    button.classList.add('bg-red-500/90', 'hover:bg-red-500', 'text-white');
+                    button.querySelector('svg').setAttribute('fill', 'currentColor');
+                } else {
+                    button.classList.remove('bg-red-500/90', 'hover:bg-red-500', 'text-white');
+                    button.classList.add('bg-white/80', 'hover:bg-white', 'text-gray-600');
+                    button.querySelector('svg').setAttribute('fill', 'none');
+                }
+            }
+        }
+
+        function updateAllFavoriteButtons() {
+            events.forEach(event => {
+                updateFavoriteButton(event.date);
+            });
+        }
+
+        // Navigation dans l'inscription
+        function closeRegistrationAndGoTo(section) {
+            closeRegistration();
+            setTimeout(() => {
+                const target = document.querySelector(section);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 100);
+        }
+
+        // Menu mobile dans l'inscription
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtnRegistration = document.getElementById('mobile-menu-btn-registration');
+            const mobileMenuRegistration = document.getElementById('mobile-menu-registration');
+            
+            if (mobileMenuBtnRegistration && mobileMenuRegistration) {
+                mobileMenuBtnRegistration.addEventListener('click', () => {
+                    mobileMenuRegistration.classList.toggle('hidden');
+                });
+            }
+        });
+
         // Initialiser les cartes au chargement de la page
         document.addEventListener('DOMContentLoaded', () => {
             generateCampCards();
             animateOnScroll();
+            updateAllFavoriteButtons();
         });
 
         // Écouter le scroll pour les animations
@@ -836,5 +1090,5 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989ddd5c31eddcfc',t:'MTc1OTY3NzIyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989dffacc2ccd588',t:'MTc1OTY3ODYzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
