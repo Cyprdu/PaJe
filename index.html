@@ -41,16 +41,16 @@
         }
         
         .hero-gradient {
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.5) 0%, rgba(153, 27, 27, 0.5) 100%), 
-                        url('https://github.com/Cyprdu/PaJe/raw/refs/heads/main/img/2025-08-22_17-06-05_328.heic') center/cover;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.4) 0%, rgba(153, 27, 27, 0.4) 100%), url('https://github.com/Cyprdu/PaJe/raw/refs/heads/main/img/2025-08-22_17-06-05_328.heic');
             background-attachment: fixed;
             background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
         }
         
         @media (max-width: 768px) {
             .hero-gradient {
-                background: linear-gradient(135deg, rgba(220, 38, 38, 0.5) 0%, rgba(153, 27, 27, 0.5) 100%), 
-                            url('https://github.com/Cyprdu/PaJe/raw/refs/heads/main/img/2025-08-22_17-06-05_328.heic') center/cover;
+                background: linear-gradient(135deg, rgba(220, 38, 38, 0.4) 0%, rgba(153, 27, 27, 0.4) 100%), url('https://github.com/Cyprdu/PaJe/raw/refs/heads/main/img/2025-08-22_17-06-05_328.heic');
                 background-attachment: scroll;
                 background-size: cover;
                 background-position: center center;
@@ -186,6 +186,8 @@
             display: none;
             flex-direction: column;
         }
+        
+
         
         .registration-header {
             background: #dc2626;
@@ -415,8 +417,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <a href="#accueil" class="flex items-center cursor-pointer">
-                    <img src="https://github.com/Cyprdu/PaJe/blob/main/img/logopa.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
+                    <h1 class="font-display text-2xl font-bold text-red-600">PaJe</h1>
                 </a>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
@@ -499,15 +500,15 @@
             
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="fade-in-up">
-                    <h3 class="font-display text-2xl text-red-600 mb-6">La Pastorale des Jeunes</h3>
+                    <h3 class="font-display text-2xl text-red-600 mb-6">La Pastorale des Jeunes et des vocations</h3>
                     <p class="font-regular text-lg text-gray-700 mb-6 leading-relaxed">
-                        La PaJe est la Pastorale des Jeunes du Diocèse de Belley-Ars. Notre mission est d'accompagner les jeunes de 10 à 17 ans dans leur découverte et leur approfondissement de la foi chrétienne.
+                        La PaJe est la Pastorale des Jeunes et des vocations du Diocèse de Belley-Ars. Notre mission est d'accompagner les jeunes de 6-35 ans dans leur découverte et leur approfondissement de la foi chrétienne. Nous nous œuvrons à l'évangélisation des jeunes et à la formation des disciples missionnaires marchant sur les pas de Jésus.
                     </p>
                     <p class="font-regular text-lg text-gray-700 mb-6 leading-relaxed">
-                        À travers nos camps, week-ends et journées de retraite, nous proposons aux jeunes de vivre des expériences authentiques de rencontre avec Jésus, dans un climat de joie, de fraternité et de partage.
+                        À travers nos camps, week-ends et journées de retraite, nous proposons aux jeunes de vivre des expériences authentiques de rencontre avec le Christ, dans un climat de joie, de fraternité et de partage.
                     </p>
                     <p class="font-regular text-lg text-gray-700 leading-relaxed">
-                        Nos activités mêlent temps spirituels (louange, adoration, enseignements) et moments de détente (grands jeux, activités créatives) pour offrir une expérience complète et enrichissante.
+                        Nos activités mêlent temps spirituels (louange, adoration, enseignements) et moments de détente (grands jeux, activités créatives, temps de partages) pour offrir une expérience vivante et enrichissante pour les jeunes.
                     </p>
                 </div>
                 <div class="bg-white rounded-2xl p-8 shadow-lg fade-in-up">
@@ -523,13 +524,33 @@
                         </li>
                         <li class="flex items-center font-regular text-gray-700">
                             <span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
-                            Découverte de la foi
+                            Découverte de la foi et rencontre avec le Christ
                         </li>
                         <li class="flex items-center font-regular text-gray-700">
                             <span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
                             Joie et épanouissement
                         </li>
+                        <li class="flex items-center font-regular text-gray-700">
+                            <span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                            Accompagnement et engagement
+                        </li>
+                        <li class="flex items-center font-regular text-gray-700">
+                            <span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                            Mission et feu de l'Esprit Saint
+                        </li>
                     </ul>
+                </div>
+            </div>
+            
+            <!-- Notre prochain événement -->
+            <div class="mt-20 fade-in-up">
+                <div class="text-center mb-12">
+                    <h3 class="font-display text-3xl font-bold text-gray-800 mb-4">Notre prochain événement</h3>
+                    <div class="w-24 h-1 bg-red-600 mx-auto"></div>
+                </div>
+                
+                <div id="next-event-container" class="max-w-4xl mx-auto">
+                    <!-- Le prochain événement sera généré par JavaScript -->
                 </div>
             </div>
         </div>
@@ -546,11 +567,14 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="camps-container">
-                <!-- Les camps seront générés par JavaScript -->
+            <!-- Vue principale des catégories -->
+            <div id="categories-view" class="grid md:grid-cols-3 gap-8">
+                <!-- Les catégories seront générées par JavaScript -->
             </div>
         </div>
     </section>
+
+
 
     <!-- Nos activités -->
     <section id="activites" class="py-20 bg-gray-50 parallax-content">
@@ -566,10 +590,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0s;">
                     <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/DSC00736.jpeg?raw=true" 
-                             alt="Temps de louange" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/DSC00736.jpeg?raw=true" alt="Louange" class="w-full h-full object-cover">
                     </div>
                     <h3 class="font-display text-xl text-red-600 mb-3">Louange</h3>
                     <p class="font-regular text-gray-700">
@@ -579,10 +600,7 @@
 
                 <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0.1s;">
                     <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/DSC00667.jpeg?raw=true" 
-                             alt="Témoignages" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/DSC00667.jpeg?raw=true" alt="Témoignages" class="w-full h-full object-cover">
                     </div>
                     <h3 class="font-display text-xl text-red-600 mb-3">Témoignages</h3>
                     <p class="font-regular text-gray-700">
@@ -592,10 +610,7 @@
 
                 <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0.2s;">
                     <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/FaiK9Rc4T-GU9M5tXeLtUA.jpeg?raw=true" 
-                             alt="Grands jeux" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/FaiK9Rc4T-GU9M5tXeLtUA.jpeg?raw=true" alt="Grands jeux" class="w-full h-full object-cover">
                     </div>
                     <h3 class="font-display text-xl text-red-600 mb-3">Grands jeux</h3>
                     <p class="font-regular text-gray-700">
@@ -605,10 +620,7 @@
 
                 <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0.3s;">
                     <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/8MQTKhaJSqC2ea0H9pNPlA.jpeg?raw=true" 
-                             alt="Adoration" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/8MQTKhaJSqC2ea0H9pNPlA.jpeg?raw=true" alt="Adoration" class="w-full h-full object-cover">
                     </div>
                     <h3 class="font-display text-xl text-red-600 mb-3">Adoration</h3>
                     <p class="font-regular text-gray-700">
@@ -618,10 +630,7 @@
 
                 <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0.4s;">
                     <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/DSC00582.jpeg?raw=true" 
-                             alt="Enseignements" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/DSC00582.jpeg?raw=true" alt="Enseignements" class="w-full h-full object-cover">
                     </div>
                     <h3 class="font-display text-xl text-red-600 mb-3">Enseignements</h3>
                     <p class="font-regular text-gray-700">
@@ -631,10 +640,7 @@
 
                 <div class="activity-card rounded-2xl p-6 card-hover fade-in-up" style="transition-delay: 0.5s;">
                     <div class="h-48 bg-gray-200 rounded-xl mb-6 overflow-hidden">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/A4aBSxjvQFqglyO0Vt9hew.jpeg?raw=true" 
-                             alt="Prière personnelle" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/A4aBSxjvQFqglyO0Vt9hew.jpeg?raw=true" alt="Prière personnelle" class="w-full h-full object-cover">
                     </div>
                     <h3 class="font-display text-xl text-red-600 mb-3">Prière personnelle</h3>
                     <p class="font-regular text-gray-700">
@@ -656,13 +662,10 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up">
                     <div class="h-64 bg-gray-200 overflow-hidden">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/IMG-20240204-WA0015.jpg?raw=true" 
-                             alt="We DEL Belley 2024" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/IMG-20240204-WA0015.jpg?raw=true" alt="We DEL Belley 2024" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="font-display text-xl text-gray-800 mb-3">We DEL Belley 2024</h3>
@@ -691,10 +694,7 @@
 
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up" style="transition-delay: 0.1s;">
                     <div class="h-64 bg-gray-200 overflow-hidden">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/A4aBSxjvQFqglyO0Vt9hew.jpeg?raw=true" 
-                             alt="We DEL Gex 2024" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
+                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/A4aBSxjvQFqglyO0Vt9hew.jpeg?raw=true" alt="We DEL Gex 2024" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="font-display text-xl text-gray-800 mb-3">We DEL Gex 2024</h3>
@@ -715,6 +715,34 @@
                                     <path d="m16 21-3.105-6.21" />
                                     <path d="m8 21 3.105-6.21" />
                                     <circle cx="12" cy="13" r="2" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="h-64 bg-gray-200 overflow-hidden">
+                        <img src="https://images.radio-canada.ca/q_auto,w_700/v1/ici-info/16x9/pape-leon-xiv-messe-inaugurale.jpg" alt="Jubilé Rome 2025" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl text-gray-800 mb-3">Retour sur le jubilé des jeunes à Rome 2025</h3>
+                        <p class="font-regular text-gray-600 mb-4">
+                            Revivez les moments extraordinaires du Jubilé des jeunes à Rome avec notre délégation diocésaine
+                        </p>
+                        <button onclick="openVideoModal('https://youtu.be/UVVAgAYJWNk')"
+                           class="btn-with-clap bg-red-600 text-white font-display px-6 py-3 rounded-full hover:bg-red-700 transition-colors inline-flex items-center gap-2">
+                            <span>Voir la vidéo</span>
+                            <div class="clap-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible;">
+                                    <g class="clap-main" style="transform-origin: 4px 20px;">
+                                        <g class="clap-hand" style="transform-origin: 3px 11px;">
+                                            <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />
+                                            <path d="m6.2 5.3 3.1 3.9" />
+                                            <path d="m12.4 3.4 3.1 4" />
+                                        </g>
+                                        <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+                                    </g>
                                 </svg>
                             </div>
                         </button>
@@ -893,8 +921,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/logopa.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
+                        <h1 class="font-display text-2xl font-bold text-red-600">PaJe</h1>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-8">
@@ -949,8 +976,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/logopa.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
+                        <h1 class="font-display text-2xl font-bold text-red-600">PaJe</h1>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-8">
@@ -1005,8 +1031,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <img src="https://github.com/Cyprdu/PaJe/blob/main/img/logopa.png?raw=true" alt="Logo PaJe" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <h1 class="font-display text-2xl font-bold text-red-600 hidden">PaJe</h1>
+                        <h1 class="font-display text-2xl font-bold text-red-600">PaJe</h1>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-8">
@@ -1063,7 +1088,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Données des camps (triées par ordre chronologique)
+        // Données des camps avec catégories (triées par ordre chronologique)
         const events = [
             {
                 type: "Journée de retraite",
@@ -1072,8 +1097,14 @@
                 date: "2025-10-11",
                 registration_link: "https://retraite2025-arssurformans.venio.fr/fr",
                 teaser: "none",
-                img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/retraite-10-12-ans-2/image_albumphotos",
-                description: "Louange, témoignages et enseignements, écoute de la Parole de Dieu, temps de partage en fraternité, petits groupes de 8 à 10 jeunes autour d'un animateur, temps d'adoration et de confession, grands jeux."
+                emoji: "⛪",
+                color: "from-purple-100 to-purple-200",
+                description: "Louange, témoignages et enseignements, écoute de la Parole de Dieu, temps de partage en fraternité, petits groupes de 8 à 10 jeunes autour d'un animateur, temps d'adoration et de confession, grands jeux.",
+                categories: {
+                    ados: true,
+                    jeunes_pro: false,
+                    vocation: false
+                }
             },
             {
                 type: "Week-end",
@@ -1083,8 +1114,14 @@
                 date: "2025-11-22",
                 registration_link: "https://weekenddieuestla2025-bourgenbresse.venio.fr/fr",
                 teaser: "https://youtu.be/j_PNDu0tmZ8",
-                img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/week-end-dieu-est-la-1/image_albumphotos",
-                description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux"
+                emoji: "✨",
+                color: "from-red-100 to-red-200",
+                description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux",
+                categories: {
+                    ados: true,
+                    jeunes_pro: true,
+                    vocation: false
+                }
             },
             {
                 type: "Week-end",
@@ -1094,8 +1131,14 @@
                 date: "2026-01-31",
                 registration_link: "https://weekenddieuestla2026-belley.venio.fr/fr",
                 teaser: "https://youtu.be/j_PNDu0tmZ8",
-                img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/week-end-dieu-est-la-1/image_albumphotos",
-                description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux"
+                emoji: "✨",
+                color: "from-red-100 to-red-200",
+                description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux",
+                categories: {
+                    ados: true,
+                    jeunes_pro: true,
+                    vocation: false
+                }
             },
             {
                 type: "Journée de retraite",
@@ -1104,8 +1147,48 @@
                 date: "2026-03-14",
                 registration_link: "https://retraite2026-arssurformans.venio.fr/fr",
                 teaser: "none",
-                img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/retraite-10-12-ans-2/image_albumphotos",
-                description: "Louange, témoignages et enseignements, écoute de la Parole de Dieu, temps de partage en fraternité, petits groupes de 8 à 10 jeunes autour d'un animateur, temps d'adoration et de confession, grands jeux."
+                emoji: "⛪",
+                color: "from-purple-100 to-purple-200",
+                description: "Louange, témoignages et enseignements, écoute de la Parole de Dieu, temps de partage en fraternité, petits groupes de 8 à 10 jeunes autour d'un animateur, temps d'adoration et de confession, grands jeux.",
+                categories: {
+                    ados: true,
+                    jeunes_pro: false,
+                    vocation: false
+                }
+            },
+            {
+                type: "Week-end de discernement",
+                name: "pour les vocations",
+                age_group: "18-35 ans",
+                location: "Monastère d'Ars",
+                date: "2026-03-12",
+                registration_link: "https://weekendvocation2026-ars.venio.fr/fr",
+                teaser: "none",
+                emoji: "🕊️",
+                color: "from-blue-100 to-blue-200",
+                description: "Un week-end spécialement conçu pour les jeunes qui s'interrogent sur leur vocation. Temps d'adoration, témoignages de prêtres, religieux et laïcs consacrés, accompagnement spirituel personnalisé. Viens discerner l'appel que Dieu te lance dans un cadre privilégié de prière et de partage.",
+                categories: {
+                    ados: false,
+                    jeunes_pro: true,
+                    vocation: true
+                }
+            },
+            {
+                type: "Pèlerinage",
+                name: "à Assise",
+                age_group: "14-25 ans",
+                location: "Assise, Italie",
+                date: "2026-04-20",
+                registration_link: "https://pelerinage-assise2026.venio.fr/fr",
+                teaser: "none",
+                emoji: "🏛️",
+                color: "from-yellow-100 to-yellow-200",
+                description: "Pars sur les traces de saint François d'Assise pour une semaine de pèlerinage inoubliable ! Découvre la spiritualité franciscaine, visite les lieux saints, participe à des temps de prière et de partage. Une expérience unique pour approfondir ta foi dans un cadre exceptionnel.",
+                categories: {
+                    ados: true,
+                    jeunes_pro: true,
+                    vocation: false
+                }
             },
             {
                 type: "Week-end",
@@ -1115,10 +1198,68 @@
                 date: "2026-05-01",
                 registration_link: "https://weekenddieuestla2026-bourg.venio.fr/fr",
                 teaser: "https://youtu.be/j_PNDu0tmZ8",
-                img: "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/week-end-dieu-est-la-1/image_albumphotos",
-                description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux"
+                emoji: "✨",
+                color: "from-red-100 to-red-200",
+                description: "Ces week-ends, organisés par la Pastorale des Jeunes du Diocèse de Belley-Ars, offrent aux jeunes un temps pour rencontrer Jésus, apprendre à vivre de Lui et témoigner de Ses merveilles à travers la louange, l'adoration et la confession, tout en profitant de grands jeux",
+                categories: {
+                    ados: true,
+                    jeunes_pro: true,
+                    vocation: false
+                }
             }
         ];
+
+        // Définition des catégories
+        const categories = {
+            ados: {
+                title: "10-17 ans",
+                subtitle: "Tu as entre 10 et 17 ans ?",
+                description: "Tu as envie de mieux te connaître et d'apprendre à connaître Jésus ? Tu veux vivre quelque chose de vrai, de profond, de joyeux ? Viens vivre des temps forts, rencontrer d'autres jeunes comme toi, découvrir et rencontrer Jésus !",
+                detailed_description: "Que tu sois déjà croyant ou que tu te poses encore plein de questions, tu es le bienvenu. Nos propositions sont faites pour t'aider à grandir, à te découvrir et à te rapprocher de Dieu, à ton rythme. Viens te construire dans la foi, la joie et l'amitié sous le regard de l'Esprit Saint !",
+                what_we_offer: [
+                    "Retraites pour les 10-12 ans au Sanctuaire d'Ars",
+                    "Week-ends 'Dieu est là' pour découvrir Jésus",
+                    "Pèlerinage à Assise pour approfondir ta foi",
+                    "Temps de louange et d'adoration",
+                    "Grands jeux et activités créatives",
+                    "Accompagnement personnalisé et bienveillant"
+                ],
+                emoji: "🌟",
+                color: "from-blue-100 to-blue-200"
+            },
+            jeunes_pro: {
+                title: "18-35 ans",
+                subtitle: "Tu as entre 18 et 35 ans, ou plus ?",
+                description: "Tu cherches un lieu où vivre ta foi, te poser, rencontrer d'autres jeunes adultes et grandir dans ta vie spirituelle ? Tu es au bon endroit ! Que tu sois étudiant, en début de vie professionnelle, en famille ou simplement en chemin spirituel, cette rubrique est faite pour toi.",
+                detailed_description: "Que tu sois déjà ancré dans la foi ou que tu sois curieux de la découvrir, tu es le bienvenu. Ici, chacun avance à son rythme, dans le respect et la richesse des parcours variés. « Exultant de joie, vous puiserez les eaux aux sources du salut. » (Is 12:3)",
+                what_we_offer: [
+                    "Rencontrer d'autres jeunes adultes qui partagent ta foi",
+                    "Approfondir ta relation avec Dieu",
+                    "Donner du sens à ta vie, ton travail, tes engagements",
+                    "Trouver un équilibre entre foi et responsabilités",
+                    "T'engager dans l'Église et la société avec confiance",
+                    "Week-ends de discernement pour les vocations"
+                ],
+                emoji: "💼",
+                color: "from-green-100 to-green-200"
+            },
+            vocation: {
+                title: "Et si Dieu t'appelait ?",
+                subtitle: "Tu ressens un appel intérieur ?",
+                description: "Tu te poses des questions sur ta place dans l'Église, sur ton avenir, sur ce que Dieu attend de toi ? La vocation, c'est bien plus qu'un mot : c'est un chemin, une réponse, une aventure.",
+                detailed_description: "Une vocation, c'est l'appel personnel que Dieu adresse à chacun. Un appel à aimer pleinement et à se donner, que ce soit dans le mariage, la vie religieuse, le sacerdoce, ou d'autres formes d'engagements au service de l'Église et du monde.",
+                what_we_offer: [
+                    "Prendre du recul et écouter l'appel de Dieu",
+                    "Comprendre ce qu'est une vocation chrétienne",
+                    "Rencontrer des personnes consacrées et des prêtres",
+                    "Rencontrer des couples engagés",
+                    "Te laisser guider à ton rythme, sans pression",
+                    "Week-ends de discernement vocationnel"
+                ],
+                emoji: "🕊️",
+                color: "from-purple-100 to-purple-200"
+            }
+        };
 
         // Fonction pour formater la date
         function formatDate(dateString) {
@@ -1145,83 +1286,61 @@
             });
         }
 
-        // Générer les cartes des camps
-        function generateCampCards() {
-            const container = document.getElementById('camps-container');
+        // Générer les cartes des catégories
+        function generateCategoryCards() {
+            const container = document.getElementById('categories-view');
             
-            events.forEach((event, index) => {
-                const card = document.createElement('div');
-                card.className = 'bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up';
-                card.style.transitionDelay = `${index * 0.1}s`;
+            Object.keys(categories).forEach((categoryKey, index) => {
+                const category = categories[categoryKey];
                 
-                const title = event.name ? `${event.type} "${event.name}"` : event.type;
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up cursor-pointer';
+                card.style.transitionDelay = `${index * 0.1}s`;
+                card.onclick = () => showCategoryDetail(categoryKey);
                 
                 card.innerHTML = `
-                    <div class="h-48 bg-gray-200 overflow-hidden relative">
-                        <img src="${event.img}" 
-                             alt="${title}" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src=''; this.alt='Image non disponible'; this.style.display='none';">
-                        <button onclick="toggleFavorite('${event.date}')" 
-                           id="fav-btn-${event.date}"
-                           class="favorite-btn absolute top-3 right-3 bg-white/80 hover:bg-white text-gray-600 p-2 rounded-full transition-all shadow-lg backdrop-blur-sm">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                            </svg>
-                        </button>
+                    <div class="h-48 bg-gradient-to-br ${category.color} relative overflow-hidden">
+                        <img src="${getCategoryImage(categoryKey)}" alt="${category.title}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-full bg-gradient-to-br ${category.color} flex items-center justify-center" style="display: none;">
+                            <div class="text-6xl">${category.emoji}</div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4 text-center z-10">
+                            <h3 class="font-display text-xl text-white font-bold drop-shadow-lg bg-black/30 backdrop-blur-sm rounded-lg px-3 py-1">${category.title}</h3>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-medium">
-                                ${event.age_group}
-                            </span>
-                            <span class="text-gray-500 text-sm font-regular">
-                                ${formatDate(event.date)}
-                            </span>
-                        </div>
-                        <h3 class="font-display text-xl text-gray-800 mb-2">${title}</h3>
-                        <p class="text-red-600 font-medium mb-3 flex items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                            ${event.location}
+                        <h4 class="font-display text-lg text-gray-800 mb-3">${category.subtitle}</h4>
+                        <p class="font-regular text-gray-600 text-sm leading-relaxed mb-4">
+                            ${category.description}
                         </p>
-                        <p class="font-regular text-gray-600 mb-4 text-sm leading-relaxed">
-                            ${event.description}
-                        </p>
-                        <div class="flex flex-col gap-2">
-                            <button onclick="openRegistration('${event.registration_link}')"
-                               class="w-full bg-red-600 text-white font-display px-6 py-3 rounded-full hover:bg-red-700 transition-colors text-center inline-flex items-center justify-center gap-2 group">
-                                <span>S'inscrire</span>
-                                <div class="cursor-click-icon">
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">
+                                    ${getEventCountForCategory(categoryKey)} événement(s)
+                                </span>
+                                <div class="text-red-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path class="cursor-main" d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z" />
-                                        <path class="click-line click-line-1" d="M14 4.1 12 6" />
-                                        <path class="click-line click-line-2" d="m5.1 8-2.9-.8" />
-                                        <path class="click-line click-line-3" d="m6 12-1.9 2" />
-                                        <path class="click-line click-line-4" d="M7.2 2.2 8 5.1" />
+                                        <path d="m9 18 6-6-6-6"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <button onclick="showCategoryDetail('${categoryKey}')" 
+                               class="btn-with-telescope bg-red-600 text-white font-display px-4 py-2 rounded-full hover:bg-red-700 transition-colors text-sm inline-flex items-center justify-center gap-2 w-full">
+                                <span>Voir les propositions</span>
+                                <div class="telescope-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <g class="telescope-scope" style="transform-origin: 12px 13px;">
+                                            <path d="m10.065 12.493-6.18 1.318a.934.934 0 0 1-1.108-.702l-.537-2.15a1.07 1.07 0 0 1 .691-1.265l13.504-4.44" />
+                                            <path d="m13.56 11.747 4.332-.924" />
+                                            <path d="M16.485 5.94a2 2 0 0 1 1.455-2.425l1.09-.272a1 1 0 0 1 1.212.727l1.515 6.06a1 1 0 0 1-.727 1.213l-1.09.272a2 2 0 0 1-2.425-1.455z" />
+                                            <path d="m6.158 8.633 1.114 4.456" />
+                                        </g>
+                                        <path d="m16 21-3.105-6.21" />
+                                        <path d="m8 21 3.105-6.21" />
+                                        <circle cx="12" cy="13" r="2" />
                                     </svg>
                                 </div>
                             </button>
-                            ${event.teaser !== "none" ? `
-                                <button onclick="openVideoModal('${event.teaser}')"
-                                   class="btn-with-clap border border-red-600 text-red-600 font-display px-6 py-2 rounded-full hover:bg-red-50 transition-colors text-center text-sm inline-flex items-center justify-center gap-2 w-full">
-                                    <span>Voir le teaser</span>
-                                    <div class="clap-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible;">
-                                            <g class="clap-main" style="transform-origin: 4px 20px;">
-                                                <g class="clap-hand" style="transform-origin: 3px 11px;">
-                                                    <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />
-                                                    <path d="m6.2 5.3 3.1 3.9" />
-                                                    <path d="m12.4 3.4 3.1 4" />
-                                                </g>
-                                                <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
-                                            </g>
-                                        </svg>
-                                    </div>
-                                </button>
-                            ` : ''}
                         </div>
                     </div>
                 `;
@@ -1229,6 +1348,50 @@
                 container.appendChild(card);
             });
         }
+
+        // Compter les événements pour une catégorie
+        function getEventCountForCategory(categoryKey) {
+            return events.filter(event => event.categories[categoryKey]).length;
+        }
+
+        // Obtenir l'image pour une catégorie
+        function getCategoryImage(categoryKey) {
+            const images = {
+                ados: "https://github.com/Cyprdu/PaJe/blob/main/img/ado.png?raw=true",
+                jeunes_pro: "https://github.com/Cyprdu/PaJe/blob/main/img/pro.png?raw=true",
+                vocation: "https://github.com/Cyprdu/PaJe/blob/main/img/voc.png?raw=true"
+            };
+            return images[categoryKey] || '';
+        }
+
+        // Obtenir l'image pour un événement
+        function getEventImage(event) {
+            if (event.type === "Journée de retraite" && event.age_group === "10-12 ans") {
+                return "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/retraite-10-12-ans-2/image_albumphotos";
+            } else if (event.type === "Week-end" && event.name === "Dieu est là") {
+                return "https://catholique-belley-ars.fr/jeunes-familles/agenda-de-la-paje/week-end-dieu-est-la-1/image_albumphotos";
+            } else if (event.type === "Pèlerinage" && event.name === "à Assise") {
+                return "https://github.com/Cyprdu/PaJe/blob/main/img/Assise.png?raw=true";
+            } else if (event.type === "Week-end de discernement" && event.name === "pour les vocations") {
+                return "https://github.com/Cyprdu/PaJe/blob/main/img/vocat.png?raw=true";
+            }
+            return '';
+        }
+
+        // Rediriger vers les pages spécifiques
+        function showCategoryDetail(categoryKey) {
+            const pages = {
+                ados: 'ados.html',
+                jeunes_pro: 'pro.html',
+                vocation: 'vocation.html'
+            };
+            
+            if (pages[categoryKey]) {
+                window.location.href = pages[categoryKey];
+            }
+        }
+
+
 
         // Système de favoris
         function getFavorites() {
@@ -1348,13 +1511,115 @@
                     mobileMenuTeaser.classList.toggle('hidden');
                 });
             }
+
+
         });
+
+        // Fonction pour générer le prochain événement
+        function generateNextEvent() {
+            const container = document.getElementById('next-event-container');
+            
+            // Trouver le prochain événement (le plus proche dans le futur)
+            const today = new Date();
+            const futureEvents = events.filter(event => new Date(event.date) >= today);
+            
+            if (futureEvents.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12">
+                        <div class="text-gray-400 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto">
+                                <path d="M8 2v4"/>
+                                <path d="M16 2v4"/>
+                                <rect width="18" height="18" x="3" y="4" rx="2"/>
+                                <path d="M3 10h18"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-display text-xl text-gray-600 mb-2">Aucun événement prévu</h4>
+                        <p class="font-regular text-gray-500">De nouveaux événements seront bientôt annoncés !</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Trier par date et prendre le premier
+            futureEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+            const nextEvent = futureEvents[0];
+            
+            const title = nextEvent.name ? `${nextEvent.type} "${nextEvent.name}"` : nextEvent.type;
+            
+            container.innerHTML = `
+                <div class="bg-gradient-to-r from-red-50 to-red-100 rounded-2xl p-8 shadow-lg border border-red-200">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    ${nextEvent.age_group}
+                                </span>
+                                <span class="bg-white text-red-600 px-4 py-2 rounded-full text-sm font-medium border border-red-200">
+                                    ${formatDate(nextEvent.date)}
+                                </span>
+                            </div>
+                            <h4 class="font-display text-2xl text-gray-800 mb-3">${title}</h4>
+                            <p class="text-red-600 font-medium mb-4 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                ${nextEvent.location}
+                            </p>
+                            <p class="font-regular text-gray-700 mb-6 leading-relaxed">
+                                ${nextEvent.description}
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <button onclick="openRegistration('${nextEvent.registration_link}')"
+                                   class="bg-red-600 text-white font-display px-6 py-3 rounded-full hover:bg-red-700 transition-colors inline-flex items-center justify-center gap-2 group">
+                                    <span>S'inscrire maintenant</span>
+                                    <div class="cursor-click-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path class="cursor-main" d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z" />
+                                            <path class="click-line click-line-1" d="M14 4.1 12 6" />
+                                            <path class="click-line click-line-2" d="m5.1 8-2.9-.8" />
+                                            <path class="click-line click-line-3" d="m6 12-1.9 2" />
+                                            <path class="click-line click-line-4" d="M7.2 2.2 8 5.1" />
+                                        </svg>
+                                    </div>
+                                </button>
+                                ${nextEvent.teaser !== "none" ? `
+                                    <button onclick="openVideoModal('${nextEvent.teaser}')"
+                                       class="btn-with-clap border-2 border-red-600 text-red-600 font-display px-6 py-3 rounded-full hover:bg-red-600 hover:text-white transition-colors inline-flex items-center justify-center gap-2">
+                                        <span>Voir le teaser</span>
+                                        <div class="clap-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible;">
+                                                <g class="clap-main" style="transform-origin: 4px 20px;">
+                                                    <g class="clap-hand" style="transform-origin: 3px 11px;">
+                                                        <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />
+                                                        <path d="m6.2 5.3 3.1 3.9" />
+                                                        <path d="m12.4 3.4 3.1 4" />
+                                                    </g>
+                                                    <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </div>
+                        <div class="h-64 bg-gradient-to-br ${nextEvent.color} rounded-xl overflow-hidden shadow-lg relative">
+                            <img src="${getEventImage(nextEvent)}" alt="${title}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="w-full h-full bg-gradient-to-br ${nextEvent.color} flex items-center justify-center" style="display: none;">
+                                <div class="text-8xl">${nextEvent.emoji}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
 
         // Initialiser les cartes au chargement de la page
         document.addEventListener('DOMContentLoaded', () => {
-            generateCampCards();
+            generateCategoryCards();
+            generateNextEvent();
             animateOnScroll();
-            updateAllFavoriteButtons();
             updateActiveNavigation();
         });
 
@@ -1529,5 +1794,5 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b7354242b80471',t:'MTc1OTk0Mjk2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98c88961b21ff4ff',t:'MTc2MDEyNDY3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
